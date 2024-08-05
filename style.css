@@ -38,6 +38,7 @@ nav > ul {
   list-style-type: none;
   gap: 2rem;
   margin: 1rem auto;
+  
 }
 
 nav li > a,
@@ -48,9 +49,9 @@ nav li > a:focus {
   text-decoration: none;
   border: none;
   font: inherit;
+  display: inline-block;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  transition: transform 0.3s ease, font-size 0.3s ease;
+  transition: transform 200ms;
 }
 
 nav li > a:active {
@@ -58,22 +59,22 @@ nav li > a:active {
   transform: scale(0.95);
 }
 
-nav li > a:hover {
+nav li:hover {
   font-weight: bold;
-  transform: scale(1.05);
-  font-size: 18px;
+  transform: scale(1.1);
 }
+  
 
 .hero-section {
   display: flex;
   align-items: stretch;
   gap: 0.5rem;
-  margin: 1rem 0;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  margin: 1.5rem 0;
+  box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.2);
 }
 
 .hero-section-img {
-  width: 60%;
+  width: 75%;
   height: auto;
 }
 
@@ -86,12 +87,25 @@ nav li > a:hover {
 .hero-div {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 2rem;
+  justify-content:space-evenly;
   flex-shrink: 0;
-  width: 40%;
+  width: 25%;
   height: auto;
-  padding: 5px;
+  padding: 2rem;
+}
+
+.hero-div .description {
+    display: -webkit-box;
+  max-width: 200px;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+    
+}
+
+.hero-div cite {
+    font-size: smaller;
 }
 
 button {
@@ -116,38 +130,65 @@ button {
 }
 
 .left-section {
-  width: 70%;
+  width: 74%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  align-content: baseline;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
 .sidebar {
-  width: 30%;
+  width: 26%;
   height: auto;
   display: flex;
   flex-direction: column;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  justify-content: space-evenly;
+  box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.2);
 }
 
 article {
   display: flex;
-  width: 30%;
+  flex: 1 0 32.6% ;
   height: auto;
   flex-direction: column;
   cursor: pointer;
   gap: 0.5rem;
-  margin: 0.5rem;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.2);
 }
+
+article img {
+    
+        float: top;
+        width:  100%;
+        height: 8rem;
+        object-fit: cover;
+    }
+
 
 .article-content {
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.landscape {
+    width: 100%;
+    box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.2);
+}
+.landscape img {
+   
+    float: top;
+    width:  100%;
+    height: 15rem;
+    object-fit: cover;
+}
+
+.landscape-content{
+    padding: 1rem 0.5rem;
+
 }
 
 .profile {
@@ -185,19 +226,18 @@ article {
 .view-on {
   display: flex;
   gap: 1rem;
-  margin: 2rem 1rem;
+  margin: 1rem 0.5rem;
 }
 
 .view-on > div {
   display: flex;
-
   justify-content: center;
   align-items: center;
   border: 1px solid #ccc;
   padding: 5px;
   border-radius: 2px;
   cursor: pointer;
-  transition: transform;
+  transition: transform 200ms;
 }
 
 .view-on > div:hover {
@@ -207,7 +247,7 @@ article {
 .most-popular {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 10px 0;
   cursor: pointer;
 }
@@ -216,7 +256,7 @@ article {
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  gap: 0.25rem;
+  
 }
 
 .popular-article span {
@@ -225,6 +265,7 @@ article {
 
 .categories {
   padding: 1rem;
+  margin: 1rem 0.5rem;
 }
 .categories ul {
   list-style: circle;
@@ -238,25 +279,29 @@ article {
 .comments {
   display: flex;
   flex-direction: column;
-  margin: 0 1rem;
+  margin: 1rem 0.5rem;
+  padding:0 0.5rem ;
 }
 
 .comments div {
-  border-bottom: 1px solid #ccc;
   padding: 8px 0;
+}
+.comments hr {
+    color: #efe7e7;
+    border: 1px solid;
 }
 
 .tags {
   display: flex;
   flex-direction: column;
-  margin: 1rem;
+  margin: 1rem 0.5rem;
 }
 
 .tags span {
   background-color: rgba(0, 0, 0, 0.1);
   padding: 0.5rem 0.75rem;
   display: inline-block;
-  margin: 0.5rem;
+  margin: 0.5rem 0.25rem;
   cursor: pointer;
 }
 
@@ -273,22 +318,32 @@ footer {
   justify-content: center;
   align-items: center;
   width: 100%;
-  overflow: hidden;
+  overflow-x: hidden; 
 }
 
+.footer-images:hover {
+    overflow-x: scroll;
+    cursor: pointer;
+}
+.footer-images::-webkit-scrollbar {
+    height: 8px;
+    background-color: #eec5c5;
+  }
+
 .footer-images > img {
-  width: 20%;
-  height: auto;
+  width: 10rem;
+  height: 10rem;
 }
 
 .footer-newsletter {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  padding: 0.5rem 1rem;
   gap: 1rem;
-  width: 100%;
-  padding: 1rem 0;
+  margin: 1rem auto;
+  
 }
 
 .footer-inputs {
@@ -299,9 +354,15 @@ footer {
 }
 
 .footer-inputs > input {
-  height: 100%;
-  padding: 10px 5px;
-}
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 2px;
+      box-sizing: border-box;
+    }
+
 
 .footer-end {
   display: flex;
@@ -313,6 +374,10 @@ footer {
   padding: 2rem 0.5rem;
 }
 
+.privacy {
+    display: flex;
+}
+
 .ul-footer {
   display: flex;
   align-items: center;
@@ -322,10 +387,10 @@ footer {
   color: #fff;
 }
 
-.ul-footer li > a,
-.ul-footer li > a:link,
-.ul-footer li > a:visited,
-.ul-footer li > a:focus {
+.footer-end a,
+.footer-end a:link,
+.footer-end a:visited,
+.footer-end a:focus {
   color: #fff;
   text-decoration: none;
   border: none;
@@ -359,6 +424,9 @@ footer {
   }
 
   .hero-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
     gap: 1rem;
   }
@@ -370,8 +438,12 @@ footer {
     white-space: nowrap;
   }
 
+  .left-section {
+    align-items: center;
+  }
+
   article {
-    width: 40%;
+    width: 42%;
   }
 
   .profile {
@@ -380,6 +452,10 @@ footer {
 
   .view-on {
     flex-wrap: wrap;
+  }
+
+  .view-on svg {
+    vertical-align: middle;
   }
 
   .ellipsis {
